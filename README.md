@@ -1,6 +1,9 @@
+> **Warning**
+> Please note this is still under development, so breaking changes may occur.
+
 ## Install
 
-Run in raspberry console
+Run in Raspberry console
 
 ```bash
     sudo apt-get install rpi.gpio
