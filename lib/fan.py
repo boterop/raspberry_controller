@@ -14,7 +14,7 @@ GPIO.setup(pin, GPIO.OUT)
 class Fan():
     def __init__(self):
         while True:
-            system_info = API.request(os.getenv("SYSTEM-USAGE-URL"))
+            system_info = API.request(os.getenv("SYSTEM_USAGE_URL"))
             current_temp = system_info['CPU']['temperature']
             if current_temp >= max_temperature:
                 GPIO.output(pin, True)
