@@ -1,5 +1,5 @@
-from lib.fan import Fan
 from dotenv import load_dotenv
+from lib.fan import Fan
 
 load_dotenv()
 
