@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BOARD)
 
 class Fan():
     def __init__(self):
-        pin = os.getenv("FAN_PIN", 7)
+        pin = int(os.getenv("FAN_PIN", 7))
         max_temperature = float(os.getenv("MAX_TEMPERATURE", 70))
         min_temperature = float(os.getenv("MIN_TEMPERATURE", 50))
 
