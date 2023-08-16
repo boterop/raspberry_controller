@@ -3,16 +3,16 @@ import time
 import RPi.GPIO as GPIO
 from lib.api import API
 
-pin = os.getenv("FAN_PIN", 7)
-max_temperature = os.getenv("MAX_TEMPERATURE", 70)
-min_temperature = os.getenv("MIN_TEMPERATURE", 50)
-
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(pin, GPIO.OUT)
 
 
 class Fan():
     def __init__(self):
+        pin = int(os.getenv("FAN_PIN", 7))
+        max_temperature = float(os.getenv("MAX_TEMPERATURE", 70))
+        min_temperature = float(os.getenv("MIN_TEMPERATURE", 50))
+
+        GPIO.setup(pin, GPIO.OUT)
         while True:
             system_info = API.request(os.getenv("SYSTEM_USAGE_URL"))
             current_temp = system_info['CPU']['temperature']
