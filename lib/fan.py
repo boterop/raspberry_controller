@@ -14,10 +14,13 @@ class Fan():
 
         GPIO.setup(pin, GPIO.OUT)
         while True:
-            system_info = API.request(os.getenv("SYSTEM_USAGE_URL"))
-            current_temp = system_info['CPU']['temperature']
-            if current_temp >= max_temperature:
-                GPIO.output(pin, True)
-            if current_temp <= min_temperature:
-                GPIO.output(pin, False)
+            try:
+                system_info = API.request(os.getenv("SYSTEM_USAGE_URL"))
+                current_temp = system_info['CPU']['temperature']
+                if current_temp >= max_temperature:
+                    GPIO.output(pin, True)
+                if current_temp <= min_temperature:
+                    GPIO.output(pin, False)
+            except Exception as e:
+                print("Error: {}".format(e))
             time.sleep(1)
