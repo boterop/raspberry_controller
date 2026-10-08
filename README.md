@@ -44,4 +44,8 @@ then `sudo systemctl enable script` and `sudo systemctl start script`
 
   Turn on the fan when the temperature is over MAX_TEMPETURE and turn it off when is under MIN_TEMPETURE (both configurable from .env file)
 
+  This image is using BCM mode (not the one used in this script)
     ![GPIO](./docs/images/gpio-fan.jpg)
+
+  To use the script, refer to the GPIO pinout diagram. For example, if PIN=7 is set in the .env file, connect your device to physical pin 7 on the Raspberry Pi, which corresponds to GPIO 4.
+    ![BOARD](./docs/images/pin-number.jpg)
