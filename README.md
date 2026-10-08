@@ -23,13 +23,13 @@ Go to `/etc/systemd/system` and create a file `script.service` and write:
 
 ```
 [Unit]
-Description="Script Description"
+Description="Fan controller"
 After=network.target
 
 [Service]
 User=server
-WorkingDirectory=/home/server/script/
-ExecStart=/home/server/script/.venv/bin/python3 main.py
+WorkingDirectory=/home/server/service/raspberry_controller
+ExecStart=/home/server/service/raspberri_controller/.venv/bin/python3 main.py
 Restart=always
 
 [Install]
