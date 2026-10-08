@@ -12,6 +12,7 @@ GPIO.setup(pin, GPIO.OUT)
 
 class Fan:
     def __init__(self):
+        GPIO.output(pin, False)
         while True:
             current_temp = self.get_temp()
             if current_temp >= max_temperature:
