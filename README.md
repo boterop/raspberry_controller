@@ -41,3 +41,5 @@ then `sudo systemctl enable script` and `sudo systemctl start script`
 - <b>Fan controller</b>
 
   Turn on the fan when the temperature is over MAX_TEMPETURE and turn it off when is under MIN_TEMPETURE (both configurable from .env file)
+
+    ![GPIO](./docs/images/gpio-fan.jpg)
