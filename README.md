@@ -2,9 +2,11 @@
 
 Run in raspberry console
 
-```bash
-    sudo apt-get install rpi.gpio
-    pip3 install -r requirements.txt
+```sh
+  sudo apt-get install rpi.gpio
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip3 install -r requirements.txt
 ```
 
 ## Set Up
@@ -27,7 +29,7 @@ After=network.target
 [Service]
 User=server
 WorkingDirectory=/home/server/script/
-ExecStart=/home/server/.asdf/shims/python3.10 main.py
+ExecStart=/home/server/script/.venv/bin/python3 main.py
 Restart=always
 
 [Install]
