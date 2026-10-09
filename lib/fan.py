@@ -3,17 +3,16 @@ import time
 import RPi.GPIO as GPIO
 
 pin = os.getenv("FAN_PIN", 7)
-max_temperature = os.getenv("MAX_TEMPERATURE", 70)
-min_temperature = os.getenv("MIN_TEMPERATURE", 50)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(pin, GPIO.OUT)
-
 
 class Fan:
     def __init__(self):
         GPIO.output(pin, False)
         while True:
+            max_temperature = int(os.getenv("MAX_TEMPERATURE", 70))
+            min_temperature = int(os.getenv("MIN_TEMPERATURE", 50))
             current_temp = self.get_temp()
             if current_temp >= max_temperature:
                 GPIO.output(pin, True)
